@@ -1,19 +1,29 @@
 import React from "react";
 import  ReactDOM  from "react-dom/client";
-const parent = React.createElement("div", { id: "parent" }, [
-    React.createElement("div", { id: "child" }, [
-      React.createElement("h1", {}, "This is Namste react!!!!"),
-      React.createElement("h2", {}, "by Neha Patil"),
-    ]),
-    React.createElement("div", { id: "child2" }, [
-      React.createElement("h1", {}, "I'm an h1 tag"),
-      React.createElement("h2", {}, "I'm an h2 tag"),
-    ]),
-  ]);
-  //JSX
 
-console.log(parent); // object
+//React.createElement ==> React Element- JS Object ==>HTMLElement(Render)
+//const heading =React.createElement("h1",{id:"heading"},"Namste React");
+//JSX -is not HTML in js. it is html like syntax/XML like syntax
+//JSX ==>React.createElement ==> React Element- JS Object ==>HTMLElement(Render)
+//Babel convert JSX code to React.createElement 
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const Title =()=>(
+    <h1 id="heading" tabIndex="5">
+        Namaste React from JSX
+    </h1>
+  )
 
-root.render(parent);
+//functional component
+//Component compositions
+const HeadingComponent = () => (
+  <div id="container">
+   { Title()}
+   <Title/>
+   <Title></Title>
+    <h1>Namste React From Functional component</h1>
+    </div>
+)
+ 
+const root=ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<HeadingComponent/>);
